@@ -8,8 +8,18 @@ export default function CreateShip(block) {
       sunk = true;
     }
   };
+  var health = function () {
+    return hits;
+  };
   var isSunk = function () {
     return sunk;
   };
-  return { size: size, hits: hits, sunk: sunk, isSunk: isSunk, hit: hit };
+  return {
+    size: size,
+    hits: hits,
+    sunk: sunk,
+    health: health,
+    isSunk: isSunk,
+    hit: hit,
+  };
 }

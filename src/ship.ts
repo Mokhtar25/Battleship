@@ -2,11 +2,12 @@ interface Ship {
   size: number;
   hits: number;
   sunk: boolean;
+  health: () => number;
   hit: () => void;
   isSunk: () => boolean;
 }
 
-function CreateShip(block: number): Ship {
+export default function CreateShip(block: number): Ship {
   const size = block;
   let hits = 0;
   let sunk = false;
@@ -18,9 +19,12 @@ function CreateShip(block: number): Ship {
     }
   };
 
+  const health = () => {
+    return hits;
+  };
   const isSunk = () => {
     return sunk;
   };
 
-  return { size, hits, sunk, isSunk, hit };
+  return { size, hits, sunk, health, isSunk, hit };
 }

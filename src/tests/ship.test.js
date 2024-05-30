@@ -2,7 +2,23 @@ import CreateShip from "../ship.js";
 
 const main = CreateShip(4);
 
-console.log(main.size);
 it("size", () => {
   expect(main.size).toBe(4);
+});
+
+it("hit", () => {
+  main.hit();
+  const name = main.health();
+  expect(name).toBe(1);
+});
+
+it("not sunk", () => {
+  expect(main.isSunk()).toBe(false);
+});
+
+it("sunk", () => {
+  main.hit();
+  main.hit();
+  main.hit();
+  expect(main.isSunk()).toBe(true);
 });
