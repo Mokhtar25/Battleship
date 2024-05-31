@@ -1,7 +1,8 @@
-export default function CreateShip(block) {
+export default function CreateShip(block, ids = 0) {
     const size = block;
     let hits = 0;
     let sunk = false;
+    let id = ids;
     const hit = () => {
         hits++;
         if (hits >= size) {
@@ -14,5 +15,5 @@ export default function CreateShip(block) {
     const isSunk = () => {
         return sunk;
     };
-    return { size, hits, sunk, health, isSunk, hit };
+    return { size, id, hits, sunk, health, isSunk, hit };
 }

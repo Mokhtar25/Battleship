@@ -1,16 +1,18 @@
-interface Ship {
+export interface Ship {
   size: number;
   hits: number;
   sunk: boolean;
+  id: number;
   health: () => number;
   hit: () => void;
   isSunk: () => boolean;
 }
 
-export default function CreateShip(block: number): Ship {
+export default function CreateShip(block: number, ids: number = 0): Ship {
   const size = block;
   let hits = 0;
   let sunk = false;
+  let id = ids;
 
   const hit = () => {
     hits++;
@@ -26,5 +28,5 @@ export default function CreateShip(block: number): Ship {
     return sunk;
   };
 
-  return { size, hits, sunk, health, isSunk, hit };
+  return { size, id, hits, sunk, health, isSunk, hit };
 }
