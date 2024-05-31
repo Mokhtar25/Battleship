@@ -13,8 +13,8 @@ export default function CreateShip(block: number): Ship {
   let sunk = false;
 
   const hit = () => {
-    hits = hits + 1;
-    if (hits === size) {
+    hits++;
+    if (hits >= size) {
       sunk = true;
     }
   };

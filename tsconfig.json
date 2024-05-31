@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES6",             // or "ES2020", "ESNext", etc.
+    "module": "ES6",             // or "ESNext", "ESModule", etc.
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",          // optional: specify output directory
+    "rootDir": "./src"           // optional: specify root directory
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}
+
