@@ -11,9 +11,18 @@ export default function MakeBoard() {
     [4, 4],
     [1, 1],
     [6, 6],
-    [2, 2],
+    [9, 2],
     [3, 3],
   ];
+  const GameOver = () => {
+    for (let i = 0; i < shipsNumber; i++) {
+      if (!ships[i].isSunk()) {
+        console.log(1);
+        return false;
+      }
+    }
+    return true;
+  };
   const PlaceDef = () => {
     let i = 0;
     for (const size of sizes) {
@@ -47,13 +56,11 @@ export default function MakeBoard() {
     }
     return true;
   };
-  PlaceDef();
-  console.table(board);
-  console.dir(ships);
-  Attack([1, 1]);
 
-  console.log(ships[1].health());
+  PlaceDef();
+  Attack([1, 1]);
   Attack([1, 2]);
-  console.log(sunkedships);
+  GameOver();
 }
+
 MakeBoard();

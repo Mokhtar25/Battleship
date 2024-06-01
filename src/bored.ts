@@ -15,9 +15,18 @@ export default function MakeBoard() {
     [4, 4],
     [1, 1],
     [6, 6],
-    [2, 2],
+    [9, 2],
     [3, 3],
   ];
+
+  const GameOver = () => {
+    for (const ship of ships) {
+      if (!ship.isSunk()) {
+        return false;
+      }
+    }
+    return true;
+  };
 
   const PlaceDef = () => {
     let i = 0;
