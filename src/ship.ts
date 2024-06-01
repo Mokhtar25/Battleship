@@ -22,7 +22,7 @@ export default function CreateShip(block: number, ids: number = 0): Ship {
   };
 
   const health = () => {
-    return hits;
+    return size - hits;
   };
   const isSunk = () => {
     return sunk;

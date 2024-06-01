@@ -20,12 +20,14 @@ export default function MakeBoard() {
   ];
 
   const GameOver = () => {
-    for (let i = 0; i < shipsNumber; i++) {
-      if (!ships[i].isSunk()) {
-        return false;
-      }
-    }
-    return true;
+    if (shipsNumber === sunkedships) return true;
+    return false;
+    // for (let i = 0; i < shipsNumber; i++) {
+    //   if (!ships[i].isSunk()) {
+    //     return false;
+    //   }
+    // }
+    // return true;
   };
 
   const PlaceDef = () => {
@@ -43,8 +45,10 @@ export default function MakeBoard() {
   const Attack = (loc: number[]): boolean => {
     if (loc[0] >= 10 || loc[1] >= 10) return false;
 
+    // adding targets to every place as a hitmarker, -2 means a ship was hit and -3 nothing was hit
     const target = board[loc[0]][loc[1]];
-    if (target === -1) return false;
+    board[loc[0]][loc[1]] = -3;
+    if (target === -1) return true;
 
     board[loc[0]][loc[1]] = -2;
 
@@ -52,6 +56,8 @@ export default function MakeBoard() {
     if (Sunk(target)) {
       sunkedships++;
     }
+
+    GameOver();
 
     return true;
   };
@@ -63,11 +69,23 @@ export default function MakeBoard() {
     }
 
     ships[shipsNumber] = CreateShip(size, shipsNumber);
-    shipsNumber++;
 
     for (let i = location[1]; i < size + location[1]; i++) {
-      board[location[0]][i] = 1;
+      board[location[0]][i] = shipsNumber;
     }
+    shipsNumber++;
     return true;
   };
+  PlaceDef();
+  Attack([4, 4]);
+  Attack([4, 5]);
+  Attack([3, 3]);
+
+  console.log(ships[0].health());
+  console.log(ships[3].health());
+
+  console.log(ships[4]);
+  GameOver();
+  console.table(board);
 }
+MakeBoard();

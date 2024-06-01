@@ -10,7 +10,7 @@ export default function CreateShip(block, ids = 0) {
         }
     };
     const health = () => {
-        return hits;
+        return size - hits;
     };
     const isSunk = () => {
         return sunk;
