@@ -1,4 +1,4 @@
-import CreateShip from "../ship.js";
+import CreateShip from "../../dist/ship";
 
 const main = CreateShip(4);
 
@@ -9,7 +9,7 @@ it("size", () => {
 it("hit", () => {
   main.hit();
   const name = main.health();
-  expect(name).toBe(1);
+  expect(name).toBe(3);
 });
 
 it("not sunk", () => {
