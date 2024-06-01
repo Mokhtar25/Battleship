@@ -17,7 +17,6 @@ export default function MakeBoard() {
   const GameOver = () => {
     for (let i = 0; i < shipsNumber; i++) {
       if (!ships[i].isSunk()) {
-        console.log(1);
         return false;
       }
     }
@@ -38,6 +37,7 @@ export default function MakeBoard() {
     if (loc[0] >= 10 || loc[1] >= 10) return false;
     const target = board[loc[0]][loc[1]];
     if (target === -1) return false;
+    board[loc[0]][loc[1]] = -2;
     ships[target].hit();
     if (Sunk(target)) {
       sunkedships++;
@@ -61,6 +61,6 @@ export default function MakeBoard() {
   Attack([1, 1]);
   Attack([1, 2]);
   GameOver();
+  console.table(board);
 }
-
 MakeBoard();
