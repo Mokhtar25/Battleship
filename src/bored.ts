@@ -19,6 +19,16 @@ export default function MakeBoard() {
     [3, 3],
   ];
 
+  const getShips = () => {
+    return ships;
+  };
+  const getSunkedShips = () => {
+    return sunkedships;
+  };
+  const getBoard = () => {
+    return board;
+  };
+
   const GameOver = () => {
     if (shipsNumber === sunkedships) return true;
     return false;
@@ -76,16 +86,26 @@ export default function MakeBoard() {
     shipsNumber++;
     return true;
   };
-  PlaceDef();
-  Attack([4, 4]);
-  Attack([4, 5]);
-  Attack([3, 3]);
-
-  console.log(ships[0].health());
-  console.log(ships[3].health());
-
-  console.log(ships[4]);
-  GameOver();
-  console.table(board);
+  // PlaceDef();
+  // Attack([4, 4]);
+  // Attack([4, 5]);
+  // Attack([3, 3]);
+  //
+  // console.log(ships[0].health());
+  // console.log(ships[3].health());
+  //
+  // console.log(ships[4]);
+  // GameOver();
+  // console.table(board);
+  //
+  return {
+    Attack,
+    PlaceDef,
+    PlaceShip,
+    GameOver,
+    getBoard,
+    getShips,
+    getSunkedShips,
+  };
 }
-MakeBoard();
+// MakeBoard();
