@@ -69,6 +69,21 @@ it("placing a custom ship", () => {
   expect(grid[6][9]).toBe(1);
 });
 
+it("testing overlap ships", () => {
+  const board = MakeBoard();
+  board.PlaceShip(2, [0, 0]);
+
+  board.PlaceShip(4, [6, 6]);
+  board.PlaceShip(3, [6, 4]);
+  const grid = board.getBoard();
+  expect(grid[6][4]).toBe(-1);
+  expect(board.getShips().length).toBe(2);
+  expect(grid[6][6]).toBe(1);
+  expect(grid[6][7]).toBe(1);
+  expect(grid[6][8]).toBe(1);
+  expect(grid[6][9]).toBe(1);
+});
+
 it("number of ships placed", () => {
   const board = MakeBoard();
   board.PlaceShip(2, [1, 1]);

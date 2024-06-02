@@ -72,8 +72,11 @@ export default function MakeBoard() {
       return false;
     }
 
-    if (board[location[0]][location[1]] !== -1) {
-      return false;
+    // testing overlapping
+    for (let i = 0; i < size; i++) {
+      if (board[location[0]][location[1] + i] !== -1) {
+        return false;
+      }
     }
 
     ships[shipsNumber] = CreateShip(size, shipsNumber);
