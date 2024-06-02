@@ -51,6 +51,9 @@ export default function MakeBoard() {
 
     // adding targets to every place as a hitmarker, -2 means a ship was hit and -3 nothing was hit
     const target = board[loc[0]][loc[1]];
+
+    if (target === -2) return false;
+
     board[loc[0]][loc[1]] = -3;
 
     if (target < 0) return false;
