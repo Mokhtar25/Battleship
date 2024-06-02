@@ -30,8 +30,7 @@ export default function MakeBoard() {
   };
 
   const GameOver = () => {
-    if (shipsNumber === sunkedships) return true;
-    return false;
+    if (shipsNumber !== sunkedships) return false;
     // for (let i = 0; i < shipsNumber; i++) {
     //   if (!ships[i].isSunk()) {
     //     return false;

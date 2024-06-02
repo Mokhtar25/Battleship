@@ -104,6 +104,7 @@ it("game over ", () => {
   board.Attack([6, 8]);
   board.Attack([6, 9]);
 
+  expect(board.getSunkedShips()).toBe(2);
   expect(board.GameOver()).toBe(true);
 });
 
