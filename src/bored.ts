@@ -78,6 +78,10 @@ export default function MakeBoard() {
       return false;
     }
 
+    if (board[location[0]][location[1]] !== -1) {
+      return false;
+    }
+
     ships[shipsNumber] = CreateShip(size, shipsNumber);
 
     for (let i = location[1]; i < size + location[1]; i++) {

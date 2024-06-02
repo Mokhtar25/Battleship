@@ -69,6 +69,17 @@ it("placing a custom ship", () => {
   expect(grid[6][9]).toBe(1);
 });
 
+it("number of ships placed", () => {
+  const board = MakeBoard();
+  board.PlaceShip(2, [1, 1]);
+  board.PlaceShip(2, [0, 0]);
+  board.PlaceShip(4, [6, 6]);
+
+  const ships = board.getShips();
+  expect(ships).toHaveProperty("0");
+  expect(ships).toHaveProperty("1");
+  expect(ships).toHaveProperty("2");
+});
 it("placing a ship wrong place", () => {
   const board = MakeBoard();
   board.PlaceShip(2, [9, 9]);
