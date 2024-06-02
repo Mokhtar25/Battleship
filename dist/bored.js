@@ -24,15 +24,9 @@ export default function MakeBoard() {
         return board;
     };
     const GameOver = () => {
-        if (shipsNumber === sunkedships)
-            return true;
-        return false;
-        // for (let i = 0; i < shipsNumber; i++) {
-        //   if (!ships[i].isSunk()) {
-        //     return false;
-        //   }
-        // }
-        // return true;
+        if (shipsNumber !== sunkedships)
+            return false;
+        return true;
     };
     const PlaceDef = () => {
         let i = 0;
@@ -64,6 +58,9 @@ export default function MakeBoard() {
     const PlaceShip = (size, location) => {
         // horizantal placemnt
         if (location[1] + size > 10) {
+            return false;
+        }
+        if (board[location[0]][location[1]] !== -1) {
             return false;
         }
         ships[shipsNumber] = CreateShip(size, shipsNumber);
