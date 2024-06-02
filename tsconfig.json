@@ -5,6 +5,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "moduleResolution":"node",
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",          // optional: specify output directory
     "rootDir": "./src"           // optional: specify root directory

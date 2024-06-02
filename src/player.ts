@@ -1,4 +1,4 @@
-import MakeBoard from "./bored";
+import MakeBoard from "./bored.js";
 
 export default function MakePlayer(name: string, id: number) {
   const board = MakeBoard();
