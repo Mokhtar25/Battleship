@@ -5,7 +5,7 @@ export default function MakeBoard() {
         .map(() => new Array(10).fill(-1));
     let shipsNumber = 0;
     let sunkedships = 0;
-    const ships = {};
+    const ships = [];
     const sizes = [2, 2, 3, 4, 5];
     const locations = [
         [4, 4],

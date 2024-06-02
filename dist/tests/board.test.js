@@ -76,6 +76,7 @@ it("number of ships placed", () => {
   board.PlaceShip(4, [6, 6]);
 
   const ships = board.getShips();
+  expect(ships.length).toBe(3);
   expect(ships).toHaveProperty("0");
   expect(ships).toHaveProperty("1");
   expect(ships).toHaveProperty("2");
