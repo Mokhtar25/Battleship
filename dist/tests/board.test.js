@@ -124,6 +124,21 @@ it("game over ", () => {
   expect(board.GameOver()).toBe(true);
 });
 
+it("attacking same place", () => {
+  const board = MakeBoard();
+
+  board.PlaceShip(2, [0, 0]);
+  board.Attack([0, 0]);
+  board.Attack([0, 0]);
+  board.Attack([0, 1]);
+  board.Attack([9, 1]);
+
+  const grid = board.getBoard();
+  expect(grid[0][0]).toBe(-2);
+  expect(grid[0][1]).toBe(-2);
+  expect(grid[9][1]).toBe(-3);
+});
+
 it("game not over ", () => {
   const board = MakeBoard();
 
