@@ -1,4 +1,4 @@
-const grid = document.querySelector(".grid");
+const grid = document.querySelector(".grid1");
 
 const frag = create();
 
