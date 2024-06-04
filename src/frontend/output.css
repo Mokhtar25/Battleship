@@ -570,12 +570,25 @@ video {
   height: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .items-center {
   align-items: center;
 }
 
 .justify-center {
   justify-content: center;
+}
+
+.gap-24 {
+  gap: 6rem;
+}
+
+.bg-green-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
 }
 
 .bg-green-800 {
@@ -586,6 +599,10 @@ video {
 .bg-slate-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(71 85 105 / var(--tw-bg-opacity));
+}
+
+.p-6 {
+  padding: 1.5rem;
 }
 
 .text-3xl {
@@ -602,6 +619,7 @@ video {
   box-sizing: border-box;
   border: 1px solid black;
   height: 36px;
+  cursor: pointer;
   width: 36px;
 }
 
@@ -611,6 +629,12 @@ video {
 }
 
 .grid1 {
+  width: 360px;
+  flex-wrap: wrap;
+  height: 360px;
+}
+
+.grid2 {
   width: 360px;
   flex-wrap: wrap;
   height: 360px;

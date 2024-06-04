@@ -1,7 +1,11 @@
 const grid = document.querySelector(".grid1");
 
+const grid2 = document.querySelector(".grid2");
+
 const frag = create();
 
+const frag2 = create();
+grid2.append(frag2);
 grid.append(frag);
 
 function create() {
