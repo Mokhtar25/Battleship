@@ -1,4 +1,5 @@
 import MakePlayer from "./player.js";
+import "./frontend/output.css";
 const grid: HTMLElement | null = document.querySelector(".grid1");
 const grid2: HTMLElement | null = document.querySelector(".grid2");
 const frag = create(1);
@@ -19,26 +20,20 @@ function GameLogicDom() {
   player1.PlaceDefualt();
   cmp.PlaceDefualt();
 
-  let turn = 1;
-
   const play = (attack: number[], type: number) => {
-    if (type === 1 && turn === 1) {
+    if (type === 2) {
+      player1.RecaiveAttack(attack);
       const board = cmp.GetBoard().getBoard();
       const childern: HTMLCollection | undefined = grid?.children;
       if (!childern) return;
       UpdateBoard(board, childern);
 
-      cmp.RecaiveAttack(attack);
-
-      turn = 2;
-    } else if (type === 2 && turn === 2) {
-      const board = player1.GetBoard().getBoard();
-      const childern: HTMLCollection | undefined = grid2?.children;
-      if (!childern) return;
-      UpdateBoard(board, childern);
       let list = [getRandomInt(9), getRandomInt(9)];
-      player1.RecaiveAttack(list);
-      turn = 1;
+      cmp.RecaiveAttack(list);
+      const board1 = player1.GetBoard().getBoard();
+      const childern1: HTMLCollection | undefined = grid2?.children;
+      if (!childern1) return;
+      UpdateBoard(board1, childern1);
     }
     if (cmp.GetBoard().GameOver() || player1.GetBoard().GameOver()) {
       if (grid) grid.textContent = "win";
@@ -80,6 +75,7 @@ function create(type: number): DocumentFragment {
         const move = [+data[0], +data[1]];
         const type = +data[2];
         game.play(move, type);
+        console.log(move, type);
       });
       frag.append(tmp);
     }
