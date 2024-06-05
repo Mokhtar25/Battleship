@@ -47,7 +47,7 @@ function UpdateBoard(borad, frag) {
         }
     }
     for (const item of frag) {
-        item.textContent = `${items[0]}`;
+        item.textContent = items[0] >= -1 ? "~" : `${items[0]}`;
         items.shift();
     }
 }
