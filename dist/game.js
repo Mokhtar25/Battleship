@@ -22,7 +22,6 @@ function GameLogic() {
         else {
             console.table(player1.GetBoard().getBoard());
             let list = [getRandomInt(9), getRandomInt(9)];
-            console.log(list);
             player1.RecaiveAttack(list);
             turn = 1;
         }
