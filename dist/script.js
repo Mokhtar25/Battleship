@@ -33,8 +33,12 @@ function GameLogicDom() {
             UpdateBoard(board1, childern1);
         }
         if (cmp.GetBoard().GameOver() || player1.GetBoard().GameOver()) {
-            if (grid)
-                grid.textContent = "win";
+            const winnerBanner = document.querySelector(".banner");
+            if (winnerBanner === null)
+                return;
+            winnerBanner.textContent = cmp.GetBoard().GameOver()
+                ? "You Lost"
+                : "You Won";
         }
     };
     return { play, player1, cmp };
