@@ -1,4 +1,3 @@
-import GameLogic from "./game.js";
 import MakePlayer from "./player.js";
 const grid: HTMLElement | null = document.querySelector(".grid1");
 const grid2: HTMLElement | null = document.querySelector(".grid2");
